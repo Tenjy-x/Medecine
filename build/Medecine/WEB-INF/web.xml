@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <display-name>Medecine - Gestion des patients</display-name>
+
+    <!-- Accents dans les formulaires -->
+    <request-character-encoding>UTF-8</request-character-encoding>
+    <response-character-encoding>UTF-8</response-character-encoding>
+
+    <!-- Package scanné par MY_FRAMEWORK pour trouver les @AnnotationController -->
+    <context-param>
+        <param-name>PackageName</param-name>
+        <param-value>Controller</param-value>
+    </context-param>
+
+    <!-- ModelAndView("patient/list") => /WEB-INF/views/patient/list.jsp -->
+    <context-param>
+        <param-name>Prefixe</param-name>
+        <param-value>/WEB-INF/views/</param-value>
+    </context-param>
+    <context-param>
+        <param-name>Suffixe</param-name>
+        <param-value>.jsp</param-value>
+    </context-param>
+
+    <!-- Utilisés par @Auth (non utilisé pour l'instant) -->
+    <context-param>
+        <param-name>Auth</param-name>
+        <param-value>userId</param-value>
+    </context-param>
+    <context-param>
+        <param-name>Role</param-name>
+        <param-value>RoleName</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>MY_FRAMEWORK</servlet-name>
+        <servlet-class>Tendry.FrontControllerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MY_FRAMEWORK</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+</web-app>
