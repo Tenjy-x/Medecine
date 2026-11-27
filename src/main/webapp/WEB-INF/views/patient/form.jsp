@@ -14,25 +14,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= creation ? "Nouveau patient" : "Modifier patient" %></title>
-    <style>
-        body  { font-family: Arial, sans-serif; background: #f4f6f8; margin: 0; padding: 24px; color: #222; }
-        .carte { max-width: 700px; margin: 0 auto; background: #fff; border-radius: 8px;
-                 padding: 24px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
-        h1    { margin-top: 0; font-size: 22px; }
-        .grille { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-        .pleine { grid-column: 1 / -1; }
-        label { display: block; font-size: 13px; color: #555; margin-bottom: 4px; }
-        input, select { width: 100%; box-sizing: border-box; padding: 8px; border: 1px solid #d1d5db;
-                        border-radius: 6px; font-size: 14px; }
-        .boutons { margin-top: 20px; display: flex; gap: 8px; }
-        .btn  { display: inline-block; padding: 8px 14px; border: 1px solid #d1d5db; border-radius: 6px;
-                background: #fff; color: #222; text-decoration: none; font-size: 14px; cursor: pointer; }
-        .btn-primaire { background: #2563eb; border-color: #2563eb; color: #fff; }
-    </style>
+    <link rel="stylesheet" href="<%= ctx %>/assets/css/app.css">
 </head>
 <body>
 <div class="carte">
     <h1><%= creation ? "Nouveau patient" : "Modifier le patient #" + p.getId() %></h1>
+    <p class="sous-titre">Les champs marqués d’un astérisque sont obligatoires.</p>
 
     <form method="post" action="<%= action %>">
         <% if (!creation) { %>
